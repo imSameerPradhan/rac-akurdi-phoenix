@@ -1,0 +1,76 @@
+.home .about {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+hr{
+    border-top: 1px solid #f5b921;
+    margin-bottom: 20px;
+}
+
+p{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p span{
+    font-weight: bold;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.home h3{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.teams-section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.theme-section{
+    display: flex;
+    justify-content: center;
+}
+
+.donate-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donate-section p{
+    padding: 20px 20px;
+    margin: 0px 150px;
+    letter-spacing: 1px;
+}
+
+.donate-section button{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #000;
+    background-color: #fff;
+    border: 5px solid #ffdd40;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0px 100px;
+}
+
+.footer{
+    display: flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    justify-content: center;
+    background-color: #171717;
+    color: #fff;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+html, body{
+    max-width: 100%;
+}
+
+.team{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+.team-container .card{
+    height: 400px;
+    margin: 30px;
+    width: 300px;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-container .card .content{
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.team-container .card .content img{
+    /* padding-bottom: 10px; */
+    margin-top: -20px;
+}
+
+.team-container .card .content h2{
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.team-container .card .content p{
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* .facebook,
+.instagram{
+    padding: 15px;
+}
+
+.instagram{
+    color: #7D1E6A;
+} */
+
+.btn-teams{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.btn-teams button{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    position: absolute;
+    letter-spacing: 1px;
+    color: #000;
+    background-color: #fff;
+    border: 5px solid #ffdd40;
+    padding: 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
