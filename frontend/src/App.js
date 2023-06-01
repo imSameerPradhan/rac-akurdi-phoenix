@@ -6,6 +6,7 @@ import Team from "./components/home/Team";
 import Login from "./components/home/Login";
 import AllMembers from "./components/AllMembers/AllMembers";
 import AddUser from "./components/AdminPanel/AddUser";
+import AddEvent from "./components/AdminPanel/AddEvent";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/team/all" element={<AllMembers />} />
           <Route exact path="/admin" element={<AddUser />} />
+          <Route exact path="/addEvent" element={<AddEvent />} />
           
         </Routes>
       </Router>
