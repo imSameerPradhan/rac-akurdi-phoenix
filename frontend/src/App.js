@@ -5,6 +5,7 @@ import Home from "./components/home/Home";
 import Team from "./components/home/Team";
 import Login from "./components/home/Login";
 import AllMembers from "./components/AllMembers/AllMembers";
+import AddUser from "./components/AdminPanel/AddUser";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route exact path="/team" element={<Team />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/team/all" element={<AllMembers />} />
+          <Route exact path="/admin" element={<AddUser />} />
+          
         </Routes>
       </Router>
     </div>
