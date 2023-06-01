@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 import President from "../../assets/president.png"
 // import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 // import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
-
+import teamDefault from '../../assets/teamDefault.png';
 
 function TeamDetail({teamsDetail}) {
-    const { name, imgSrc, instaSrc, fbSrc } = teamsDetail;
+    const { fullname, image, instaSrc, fbSrc } = teamsDetail;
   return (
     <div>
         <div className="team-main">
         <div className="team-container">
             <div className="card">
             <div className="content">
-                <img src={imgSrc} alt="Team" width="300px" height="350px" />
-                <h2>{name}</h2>
+                <img src={image.includes('http')?image:teamDefault} alt="Team" width="300px" height="350px" />
+                <h2>{fullname}</h2>
                 {/* <a
                 className="facebook"
                 href={fbSrc}

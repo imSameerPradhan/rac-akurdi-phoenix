@@ -1,50 +1,32 @@
-import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Team.css";
 import TeamDetail from "./TeamDetail";
+import axios from "axios";
 
 function Team() {
-  const teams = [
-    {
-      name: "Pushparaj Patel",
-      instaSrc:
-        "https://www.instagram.com/dreamlifearts_tattoos_pune_/?igshid=YmMyMTA2M2Y=",
-      fbSrc:
-        "https://www.facebook.com/dreamlifearts_tattoos_pune-105601871172802/",
-      imgSrc:
-        "https://ik.imagekit.io/odme7nhvr/WhatsApp_Image_2023-05-31_at_11.16.35_AM.jpeg",
-    },
-    {
-      name: "Gauri Tandale",
-      instaSrc:
-        "https://www.instagram.com/dreamlifearts_tattoos_pune_/?igshid=YmMyMTA2M2Y=",
-      fbSrc:
-        "https://www.facebook.com/dreamlifearts_tattoos_pune-105601871172802/",
-      imgSrc:
-        "https://ik.imagekit.io/odme7nhvr/WhatsApp_Image_2023-05-31_at_1.01.53_AM.jpeg",
-    },
-    {
-      name: "Chetna Lanjewar",
-      instaSrc:
-        "https://www.instagram.com/dreamlifearts_tattoos_pune_/?igshid=YmMyMTA2M2Y=",
-      fbSrc:
-        "https://www.facebook.com/dreamlifearts_tattoos_pune-105601871172802/",
-      imgSrc:
-        "https://ik.imagekit.io/odme7nhvr/WhatsApp_Image_2023-05-31_at_1.01.55_AM.jpeg",
-    },
-  ];
 
-  const [goToTeam, setGoToTeam] = useState(false);
 
-  if (goToTeam) {
-    return <Navigate to="/team" />;
-  }
+ const[Leader,setLeader]= useState([]);
+
+const navigate =useNavigate();
+
+
+  useEffect(()=>{
+    async function getLeader() {
+       const res =await axios.get('http://localhost:8000/user/getMember',{params:{isLeader:true},headers:{"x-api-key":1234567890123456}});
+       setLeader(res.data)    
+     }
+   
+     getLeader();
+     },[]);
+
 
   return (
     <div>
       <div className="team" id="team">
         {/* <ImageKit path="tattoo49.jpg" /> */}
-        {teams.length === 0 ? (
+        {Leader?.length === 0 ? (
           <div className="team-container">
             {/* --------------CARD STARTS---------- */}
             <div className="card">
@@ -69,7 +51,7 @@ function Team() {
             </div>
           </div>
         ) : (
-          teams.map((teamsDetail) => {
+          Leader?.slice(0,3)?.map((teamsDetail) => {
             return (
               <TeamDetail teamsDetail={teamsDetail} key={teamsDetail._key} />
             );
@@ -79,8 +61,7 @@ function Team() {
       <div className="btn-teams">
         <button
           onClick={() => {
-            setGoToTeam(true);
-            window.scrollTo(0, 0);
+            navigate('all')
           }}
         >
           View Whole Team

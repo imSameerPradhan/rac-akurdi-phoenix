@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Login() {
-  const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -15,7 +14,6 @@ function Login() {
         console.log(error);
       }
     };
-  };
   return (
     <div>
       <h2>Login</h2>
