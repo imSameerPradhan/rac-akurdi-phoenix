@@ -3,6 +3,7 @@ import 'firebase/storage';
 import { storage } from '../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 // title,
 //     desc,
 //     image,
@@ -13,6 +14,7 @@ function AddEvent() {
     const [name, setName] = useState()
     const [desc, setDesc] = useState()
     const [fullDesc, setFullDesc] = useState();
+    const [cookies, setCookie, removeCookie] = useCookies(['isUser']);
 
     const [event, setEvent] = useState();
     useEffect(()=>{
@@ -90,7 +92,8 @@ if(res.status===200){
 }
 
   return (
-    <div>
+    <>
+   {cookies.loggedIn? <div>
 
         <input value={name} onChange={(e)=>setName(e.target.value)} placeholder='name'  />
         <input value={desc} onChange={(e)=>setDesc(e.target.value)} placeholder='Description'  />
@@ -114,7 +117,8 @@ if(res.status===200){
 
 </div>
 
-        </div>
+        </div>:<p>Be an admin to access this</p>}
+        </>
   )
 }
 

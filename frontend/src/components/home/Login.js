@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import {useCookies} from 'react-cookie';
+
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [cookies, setCookie, removeCookie] = useCookies(['isUser']);
 
     const handleLogin = async (e) => {
       e.preventDefault();
-      try {
-        const response = await axios.post("/api/login", { email, password });
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
+      if(email==='admin@gmail.com'&& password==='admin'){
+                setCookie('loggedIn',true)
+window.location.href='/admin'
       }
+     
     };
   return (
     <div>

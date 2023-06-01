@@ -3,6 +3,7 @@ import 'firebase/storage';
 import { storage } from '../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 function AddUser() {
     // fullname, desc, image, post,isLeader
@@ -11,10 +12,11 @@ function AddUser() {
  const [post, setPost] = useState()
  const [isLeader, setIsLeader] = useState(false);
  const [selectedFile, setSelectedFile] = useState(null);
+ const [cookies, setCookie, removeCookie] = useCookies(['isUser']);
 
  const[nonLeader,setNonLeader]= useState([]);
 
-
+console.log(cookies);
  const[Leader,setLeader]= useState([]);
 
 
@@ -100,7 +102,12 @@ if(res.status===200){
 
 }
  return (
-    <div>
+
+  <>
+  
+  
+  
+    {cookies.loggedIn ? <div>
 
         <input value={name} onChange={(e)=>setName(e.target.value)} placeholder='name'  />
         <input value={desc} onChange={(e)=>setDesc(e.target.value)} placeholder='Description'  />
@@ -137,7 +144,8 @@ if(res.status===200){
 
 </div>
 
-        </div>
+        </div>:<p>Be an admin to change this</p>}
+        </>
   )
 }
 
