@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import 'firebase/storage';
 import { storage } from '../../firebase';
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
@@ -13,6 +13,17 @@ function AddEvent() {
     const [name, setName] = useState()
     const [desc, setDesc] = useState()
     const [fullDesc, setFullDesc] = useState();
+
+    const [event, setEvent] = useState();
+    useEffect(()=>{
+      async function getNonLeader() {
+         const res =await axios.get('http://localhost:8000/events/getEvent',{params:{isLeader:false},headers:{"x-api-key":1234567890123456}});
+         setEvent(res.data)  
+         console.log(res);  
+       }
+     
+       getNonLeader();
+       },[]);
 
 const [date, setDate] = useState()
 const [link, setLink] = useState();
@@ -67,6 +78,17 @@ const body={
 
 }
 
+
+async function handleDelete(eventId) {
+  const res =  await axios.delete('http://localhost:8000/events/deleteEvent',{data:{eventId},headers:{
+    "x-api-key":1234567890123456
+}},)
+if(res.status===200){
+  window.location.reload();
+}
+
+}
+
   return (
     <div>
 
@@ -81,6 +103,16 @@ const body={
 
 
 <div onClick={handleSubmit}>Add</div>
+
+<div>
+{event?.map((user)=><div style={{display:'flex'}}>
+  <p>{user.title}</p>
+  <p onClick={()=>handleDelete(user._id)}>delete</p>
+</div>)
+
+}
+
+</div>
 
         </div>
   )
